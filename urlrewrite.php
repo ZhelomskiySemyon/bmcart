@@ -1,5 +1,29 @@
 <?php
 $arUrlRewrite=array (
+  5 => 
+  array (
+    'CONDITION' => '#^/obratnaya-svyaz/#',
+    'RULE' => '',
+    'ID' => '',
+    'PATH' => '/o-servise/kontakty/obratnaya-svyaz/index.php',
+    'SORT' => 100,
+  ),
+  8 => 
+  array (
+    'CONDITION' => '#^/moi-obyavleniya/#',
+    'RULE' => '',
+    'ID' => '',
+    'PATH' => '/lichnyy-kabinet-prodavtsa/moi-obyavleniya/index.php',
+    'SORT' => 100,
+  ),
+  9 => 
+  array (
+    'CONDITION' => '#^/izbrannoe/#',
+    'RULE' => '',
+    'ID' => '',
+    'PATH' => '/lichnyy-kabinet-pokupatelya/izbrannoe/index.php',
+    'SORT' => 100,
+  ),
   0 => 
   array (
     'CONDITION' => '#^/services/#',
@@ -14,6 +38,38 @@ $arUrlRewrite=array (
     'RULE' => '',
     'ID' => 'bitrix:catalog',
     'PATH' => '/products/index.php',
+    'SORT' => 100,
+  ),
+  3 => 
+  array (
+    'CONDITION' => '#^/vakansii/#',
+    'RULE' => '',
+    'ID' => '',
+    'PATH' => '/o-servise/vakansii/index.php',
+    'SORT' => 100,
+  ),
+  4 => 
+  array (
+    'CONDITION' => '#^/kontakty/#',
+    'RULE' => '',
+    'ID' => '',
+    'PATH' => '/o-servise/kontakty/index.php',
+    'SORT' => 100,
+  ),
+  6 => 
+  array (
+    'CONDITION' => '#^/novosti/#',
+    'RULE' => '',
+    'ID' => '',
+    'PATH' => '/o-servise/novosti/index.php',
+    'SORT' => 100,
+  ),
+  7 => 
+  array (
+    'CONDITION' => '#^/agenty/#',
+    'RULE' => '',
+    'ID' => '',
+    'PATH' => '/o-servise/agenty/index.php',
     'SORT' => 100,
   ),
   2 => 

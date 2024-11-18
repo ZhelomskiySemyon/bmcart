@@ -36,7 +36,7 @@ $APPLICATION->SetTitle("Мои объявления");
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => array("NAME","PREVIEW_TEXT","PREVIEW_PICTURE","DETAIL_TEXT","DETAIL_PICTURE","DATE_ACTIVE_FROM","TIMESTAMP_X",""),
-		"LIST_PROPERTY_CODE" => array("","ADDRESS","PRICE","NUMBERFLOORS","TOTALAREA","NUMBERBATHROOMS","LINKSEXTERNALRESOURCES","PRIORITYDEAL","AVAILABILITYGARAGE",""),
+		"LIST_PROPERTY_CODE" => array("ADDRESS","PRICE","NUMBERFLOORS","TOTALAREA","NUMBERBATHROOMS","LINKSEXTERNALRESOURCES","PRIORITYDEAL","AVAILABILITYGARAGE",""),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
@@ -49,7 +49,9 @@ $APPLICATION->SetTitle("Мои объявления");
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_MODE" => "N",
+		"SEF_FOLDER" => "/lichnyy-kabinet-prodavtsa/moi-obyavleniya/",
+		"SEF_MODE" => "Y",
+		"SEF_URL_TEMPLATES" => Array("detail"=>"#ELEMENT_CODE#/","news"=>"","section"=>""),
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
@@ -65,7 +67,6 @@ $APPLICATION->SetTitle("Мои объявления");
 		"USE_RATING" => "N",
 		"USE_REVIEW" => "N",
 		"USE_RSS" => "N",
-		"USE_SEARCH" => "N",
-		"VARIABLE_ALIASES" => Array("ELEMENT_ID"=>"ELEMENT_ID","SECTION_ID"=>"SECTION_ID")
+		"USE_SEARCH" => "N"
 	)
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

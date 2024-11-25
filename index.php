@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
-?><?$APPLICATION->IncludeComponent(
+?><? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL_VALUE"=>"Да"];?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"",
 	Array(
@@ -14,7 +14,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"AJAX_OPTION_STYLE" => "Y",
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
+		"CACHE_TIME" => "172800",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
 		"DETAIL_URL" => "",
@@ -24,11 +24,11 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array("",""),
-		"FILTER_NAME" => "",
+		"FIELD_CODE" => array("NAME","DATE_CREATE","CREATED_USER_NAME",""),
+		"FILTER_NAME" => "arrFilter",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => $_REQUEST["ID"],
-		"IBLOCK_TYPE" => "news",
+		"IBLOCK_ID" => "5",
+		"IBLOCK_TYPE" => "announcements",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"MESSAGE_404" => "",
@@ -43,7 +43,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("",""),
+		"PROPERTY_CODE" => array("PRIORITYDEAL",""),
 		"SET_BROWSER_TITLE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
@@ -55,7 +55,16 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N"
+		"STRICT_SECTION_CHECK" => "N",
+		"USE_FILTER" => "Y"
+	)
+);?><?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "page",
+		"AREA_FILE_SUFFIX" => "widget",
+		"EDIT_TEMPLATE" => ""
 	)
 );?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
@@ -63,11 +72,11 @@ $APPLICATION->SetTitle("Мебельная компания");
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "300",
+		"CACHE_TIME" => "172800",
 		"CACHE_TYPE" => "A",
 		"DETAIL_URL" => "",
 		"FIELD_CODE" => array("",""),
-		"IBLOCKS" => array(),
+		"IBLOCKS" => array("5"),
 		"IBLOCK_TYPE" => "announcements",
 		"NEWS_COUNT" => "9",
 		"SORT_BY1" => "ACTIVE_FROM",
@@ -76,12 +85,40 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER2" => "ASC"
 	)
 );?><?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
+	"bitrix:news.line",
 	"",
 	Array(
-		"AREA_FILE_SHOW" => "page",
-		"AREA_FILE_SUFFIX" => "inc",
-		"EDIT_TEMPLATE" => ""
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "7 257 600",
+		"CACHE_TYPE" => "A",
+		"DETAIL_URL" => "",
+		"FIELD_CODE" => array("",""),
+		"IBLOCKS" => array("6"),
+		"IBLOCK_TYPE" => "services",
+		"NEWS_COUNT" => "6",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC"
+	)
+);?><?$APPLICATION->IncludeComponent(
+	"bitrix:news.line",
+	"",
+	Array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "604800",
+		"CACHE_TYPE" => "A",
+		"DETAIL_URL" => "",
+		"FIELD_CODE" => array("",""),
+		"IBLOCKS" => array(),
+		"IBLOCK_TYPE" => "news",
+		"NEWS_COUNT" => "3",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC"
 	)
 );?>
 <p>

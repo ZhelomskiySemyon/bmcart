@@ -77,16 +77,16 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"EDIT_TEMPLATE" => ""
 	)
 );?>
-    <div class="site-section site-section-sm bg-light">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="site-section-title">
-                        <h2><?=GetMessage('ANNOUNCEMENTS')?></h2>
-                    </div>
-                </div>
-            </div>
-        <?$APPLICATION->IncludeComponent(
+		<div class="site-section site-section-sm bg-light">
+			<div class="container">
+				<div class="row mb-5">
+					<div class="col-12">
+						<div class="site-section-title">
+							<h2><?=GetMessage('ANNOUNCEMENTS')?></h2>
+						</div>
+					</div>
+				</div>
+				 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
 	"announcements",
 	Array(
@@ -95,7 +95,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"CACHE_TIME" => "172800",
 		"CACHE_TYPE" => "A",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array("PREVIEW_TEXT","PREVIEW_PICTURE",""),
+		"FIELD_CODE" => array("PREVIEW_TEXT","PREVIEW_PICTURE","PROPERTY_PRICE","PROPERTY_TOTALAREA","PROPERTY_NUMBERBATHROOMS","PROPERTY_AVAILABILITYGARAGE",""),
 		"IBLOCKS" => array("5"),
 		"IBLOCK_TYPE" => "announcements",
 		"NEWS_COUNT" => "9",
@@ -105,18 +105,18 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER2" => "ASC"
 	)
 );?>
-        </div>
-    </div>
-    <div class="site-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-7 text-center mb-5">
-                    <div class="site-section-title">
-                        <h2><?=GetMessage('OUR_SERVICES')?></h2>
-                    </div>
-                </div>
-            </div>
-            <?$APPLICATION->IncludeComponent(
+			</div>
+		</div>
+		<div class="site-section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-7 text-center mb-5">
+						<div class="site-section-title">
+							<h2><?=GetMessage('OUR_SERVICES')?></h2>
+						</div>
+					</div>
+				</div>
+				 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
 	"services",
 	Array(
@@ -125,8 +125,8 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"CACHE_TIME" => "7 257 600",
 		"CACHE_TYPE" => "A",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(0=>"",1=>"",),
-		"IBLOCKS" => array(0=>"6",),
+		"FIELD_CODE" => array("","PROPERTY_LINKSEXTERNALRESOURCES",""),
+		"IBLOCKS" => array("6"),
 		"IBLOCK_TYPE" => "services",
 		"NEWS_COUNT" => "6",
 		"SORT_BY1" => "ACTIVE_FROM",
@@ -135,18 +135,18 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER2" => "ASC"
 	)
 );?>
-        </div>
-    </div>
-    <div class="site-section bg-light">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 text-center">
-                    <div class="site-section-title">
-                        <h2><?=GetMessage('NEWS')?></h2>
-                    </div>
-                </div>
-            </div>
-            <?$APPLICATION->IncludeComponent(
+			</div>
+		</div>
+		<div class="site-section bg-light">
+			<div class="container">
+				<div class="row justify-content-center mb-5">
+					<div class="col-md-7 text-center">
+						<div class="site-section-title">
+							<h2><?=GetMessage('NEWS')?></h2>
+						</div>
+					</div>
+				</div>
+				 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
 	"news",
 	Array(
@@ -166,8 +166,8 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER2" => "ASC"
 	)
 );?>
-        </div>
-    </div>
+			</div>
+		</div>
 		<p>
 		</p>
 		<p>

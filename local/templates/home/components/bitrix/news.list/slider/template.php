@@ -13,12 +13,6 @@
 $this->setFrameMode(true);
 ?>
 
-<?php
-
-//\Bitrix\Main\Diag\Debug::dump($arResult['ITEMS'][0])
-
-?>
-
 <div class="slide-one-item home-slider owl-carousel">
     <?foreach($arResult["ITEMS"] as $arItem):?>
         <?

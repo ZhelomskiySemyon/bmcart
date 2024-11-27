@@ -20,17 +20,23 @@ if(!is_array($css) || !in_array("/bitrix/css/main/font-awesome.css", $css))
 	$strReturn .= '<link href="'.CUtil::GetAdditionalFileURL("/bitrix/css/main/font-awesome.css").'" type="text/css" rel="stylesheet" />'."\n";
 }
 
-$strReturn .= '<div class="bx-breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">';
+$strReturn .= '<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url('.SITE_TEMPLATE_PATH.'/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+    <div class="row align-items-center justify-content-center text-center">
+    <div class="col-md-10">
+    <h1 class="mb-2" style="text-transform:uppercase;">'.CMain::GetTitle().'</h1>
+    <div class="bx-breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">';
 
 $itemSize = count($arResult);
+
 for($index = 0; $index < $itemSize; $index++)
 {
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
-
+    $arrow = ($index > 0? '<span class="mx-2 text-white">&bullet;</span>' : '');
 	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
 	{
 		$strReturn .= '
-			
+			'.$arrow.'
 				<a href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="item">
 					<span itemprop="name">'.$title.'</span>
 				</a>
@@ -40,13 +46,17 @@ for($index = 0; $index < $itemSize; $index++)
 	else
 	{
 		$strReturn .= '
-            <span class="mx-2 text-white">&bullet;</span>
+            '.$arrow.'
+            
 			 <strong class="text-white">
 				<span>'.$title.'</span>
 			</strong>';
+        ?>
+
+        <?php
 	}
 }
 
-$strReturn .= '<div style="clear:both"></div></div>';
+$strReturn .= '<div style="clear:both"></div></div></div></div></div></div>';
 
 return $strReturn;

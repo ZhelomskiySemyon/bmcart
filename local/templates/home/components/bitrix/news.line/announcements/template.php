@@ -24,25 +24,6 @@ Loader::requireModule('iblock');
                 $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
                 $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
                 ?>
-                <?
-                $ibElement = CIBlockElement::GetProperty($arItem['IBLOCK_ID'], $arItem['ID']);
-                while ($element = $ibElement->Fetch()) {
-                    switch ($element['CODE']) {
-                        case "PRICE":
-                            $price = str_replace('|', ' ', $element['VALUE']);
-                            break;
-                        case "TOTALAREA":
-                            $area = $element['VALUE'];
-                            break;
-                        case "NUMBERBATHROOMS":
-                            $bathroms = $element['VALUE'];
-                            break;
-                        case "AVAILABILITYGARAGE":
-                            $garage = $element['VALUE'] == NULL ? 'Нету' : "Есть";
-                            break;
-                    }
-                }
-                ?>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                     <a href="property-details.html" class="prop-entry d-block">
@@ -53,7 +34,7 @@ Loader::requireModule('iblock');
                         </figure>
                         <div class="prop-text">
                             <div class="inner">
-                                <span class="price rounded"><?=$price?></span>
+                                <span class="price rounded"><?=str_replace('|', " ", $arItem['PROPERTY_PRICE_VALUE'])?></span>
                                 <h3 class="title"><?=$arItem['NAME']?></h3>
                                 <p class="location"><?=$arItem['PREVIEW_TEXT']?></p>
                             </div>
@@ -61,15 +42,15 @@ Loader::requireModule('iblock');
                                 <div class="inner d-flex">
                                     <div class="col">
                                         <span><?=GetMessage('AREA')?>:</span>
-                                        <strong><?=$area?><sup>2</sup></strong>
+                                        <strong><?=$arItem['PROPERTY_TOTALAREA_VALUE']?><sup>2</sup></strong>
                                     </div>
                                     <div class="col">
                                         <span><?=GetMessage('BATHS')?>:</span>
-                                        <strong><?=$bathroms?></strong>
+                                        <strong><?=$arItem['PROPERTY_NUMBERBATHROOMS_VALUE']?></strong>
                                     </div>
                                     <div class="col">
                                         <span><?=GetMessage('GARAGE')?>:</span>
-                                        <strong><?=$garage?></strong>
+                                        <strong><?echo $arItem['PROPERTY_AVAILABILITYGARAGE_VALUE'] == "Да" ? 'Есть' : 'Нету';?></strong>
                                     </div>
                                 </div>
                             </div>

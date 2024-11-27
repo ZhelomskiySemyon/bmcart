@@ -77,8 +77,7 @@ use Bitrix\Main\Page\Asset;
                             </a>
 
 
-                        <a href="#"><span class="text-black fl-bigmug-line-email64"></span> <span
-                                    class="d-none d-md-inline-block ml-2">
+                        <a href="#">
                             <?$APPLICATION->IncludeComponent(
                                 "bitrix:main.include",
                                 "",
@@ -87,7 +86,7 @@ use Bitrix\Main\Page\Asset;
                                     "AREA_FILE_SUFFIX" => "email",
                                     "EDIT_TEMPLATE" => ""
                                 )
-                            );?></span></a>
+                            );?></a>
                     </p>
                 </div>
                     <?$APPLICATION->IncludeComponent(
@@ -122,16 +121,16 @@ use Bitrix\Main\Page\Asset;
                 <div class="col-4 col-md-4 col-lg-8">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:menu",
-                        "horizontal_multilevel",
+                        "another_multi",
                         array(
-                            "COMPONENT_TEMPLATE" => "horizontal_multilevel",
+                            "COMPONENT_TEMPLATE" => "another_multi",
                             "ROOT_MENU_TYPE" => "top",
                             "MENU_CACHE_TYPE" => "N",
                             "MENU_CACHE_TIME" => "3600",
                             "MENU_CACHE_USE_GROUPS" => "Y",
                             "MENU_CACHE_GET_VARS" => array(
                             ),
-                            "MAX_LEVEL" => "4",
+                            "MAX_LEVEL" => "3",
                             "CHILD_MENU_TYPE" => "left",
                             "USE_EXT" => "N",
                             "DELAY" => "N",
@@ -144,12 +143,3 @@ use Bitrix\Main\Page\Asset;
         </div>
     </div>
 </div>
-<div class="site-section site-section-sm bg-light">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="site-section-title">
-                    <h2><?$APPLICATION->ShowTitle(false);?></h2>
-                </div>
-            </div>
-        </div>

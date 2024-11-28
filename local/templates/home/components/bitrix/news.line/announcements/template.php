@@ -17,7 +17,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 Loader::requireModule('iblock');
 ?>
-
         <div class="row mb-5">
             <?foreach($arResult["ITEMS"] as $arItem):?>
                 <?
@@ -26,7 +25,7 @@ Loader::requireModule('iblock');
                 ?>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-                    <a href="property-details.html" class="prop-entry d-block">
+                    <a href="<?=$arItem['DETAIL_PAGE_URL']?>>" class="prop-entry d-block">
                         <figure>
                             <?if(is_array($arItem["PREVIEW_PICTURE"])):?>
                             <img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" alt="Image" class="img-fluid">
@@ -42,7 +41,11 @@ Loader::requireModule('iblock');
                                 <div class="inner d-flex">
                                     <div class="col">
                                         <span><?=GetMessage('AREA')?>:</span>
-                                        <strong><?=$arItem['PROPERTY_TOTALAREA_VALUE']?><sup>2</sup></strong>
+                                        <strong><?=$arItem['PROPERTY_TOTALAREA_VALUE']?>m<sup>2</sup></strong>
+                                    </div>
+                                    <div class="col">
+                                        <span><?=GetMessage('FLOOR')?>:</span>
+                                        <strong><?=$arItem['DISPLAY_PROPERTIES']['NUMBERFLOORS']['DISPLAY_VALUE']?></strong>
                                     </div>
                                     <div class="col">
                                         <span><?=GetMessage('BATHS')?>:</span>

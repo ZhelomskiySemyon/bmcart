@@ -104,7 +104,6 @@ $this->setFrameMode(true);
                     <?foreach ($arResult['DISPLAY_PROPERTIES']['LINKSEXTERNALRESOURCES']['DISPLAY_VALUE'] as $link):?>
                         <?=$link?><br>
                     <?endforeach;?>
-                    <p><a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>"><?=GetMessage("T_NEWS_DETAIL_BACK")?></a></p>
                 </div>
             </div>
             <div class="col-lg-4 pl-md-5">
@@ -138,6 +137,3 @@ $this->setFrameMode(true);
 
             </div>
 
-        </div>
-    </div>
-</div>

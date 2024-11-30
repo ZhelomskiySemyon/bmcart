@@ -126,14 +126,4 @@ $APPLICATION->IncludeComponent(
 ?>
     </div>
 </div>
-
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="site-pagination">
-                <?=$arResult["NAV_STRING"]?>
-            </div>
-        </div>
-    </div>
-<?endif;?>
 <?

@@ -2,17 +2,6 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Контакты");
 ?>
-                    <?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb", 
-	"breadcrumb", 
-	array(
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"START_FROM" => "0",
-		"COMPONENT_TEMPLATE" => "breadcrumb"
-	),
-	false
-);?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include", 
 	".default", 

@@ -39,7 +39,7 @@ $APPLICATION->SetTitle("Новости");
 		"IBLOCK_TYPE" => "news",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"LIST_FIELD_CODE" => array("","PREVIEW_TEXT","PREVIEW_PICTURE",""),
+		"LIST_FIELD_CODE" => array("PREVIEW_TEXT","PREVIEW_PICTURE",""),
 		"LIST_PROPERTY_CODE" => array("PHOTOGALLERY","DISLIKE","LIKE",""),
 		"MAX_VOTE" => "5",
 		"MESSAGE_404" => "",

@@ -1,7 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
-?><? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL"=>5];?> <?$APPLICATION->IncludeComponent(
+?>
+
+
+<? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL"=>5, "CREATED_USER_ID"=>"1"];?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"slider",
 	Array(
@@ -57,7 +60,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
-		"USE_FILTER" => "Y"
+		"USE_FILTER" => "N"
 	)
 );?>
 <div class="site-section site-section-sm bg-light">
@@ -102,7 +105,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC"
+		"SORT_ORDER2" => "ASC",
 	)
 );?>
 			</div>

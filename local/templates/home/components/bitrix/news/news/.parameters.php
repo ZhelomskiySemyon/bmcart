@@ -7,6 +7,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 /** @var array $arCurrentValues */
 
 $arTemplateParameters = array(
+    "DISPLAY_HEADLINE" => array(
+        "NAME" => GetMessage('T_IBLOCK_DESC_NEWS_HEADLINE'),
+        "TYPE" => "STRING",
+        "DEFAULT" => 'Объявления',
+    ),
 	"DISPLAY_DATE" => Array(
 		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_DATE"),
 		"TYPE" => "CHECKBOX",

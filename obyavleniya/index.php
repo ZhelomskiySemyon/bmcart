@@ -2,14 +2,6 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Объявления");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb",
-	"breadcrumb",
-	Array(
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"START_FROM" => "0"
-	)
-);?><?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"news",
 	Array(
@@ -40,6 +32,7 @@ $APPLICATION->SetTitle("Объявления");
 		"DISPLAY_AS_RATING" => "rating",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
+		"DISPLAY_HEADLINE" => "объявления",
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",

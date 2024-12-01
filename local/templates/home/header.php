@@ -143,3 +143,14 @@ use Bitrix\Main\Page\Asset;
         </div>
     </div>
 </div>
+    <?if($APPLICATION->GetCurPage() != "/"):?>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:breadcrumb",
+    "breadcrumb",
+    Array(
+        "PATH" => "",
+        "SITE_ID" => "s1",
+        "START_FROM" => "0"
+    )
+);?>
+<?endif;?>

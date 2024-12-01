@@ -89,11 +89,17 @@ $this->setFrameMode(true);
                         <div class="col-12">
                             <h2 class="h4 text-black mb-3"><?=GetMessage('ADDITIONAL_MATERIAL')?></h2>
                         </div>
+                        <?if(is_null($arResult['DISPLAY_PROPERTIES']['ADDITIONALMATERIALS']['FILE_VALUE']['SRC'])):?>
                         <?foreach ($arResult['DISPLAY_PROPERTIES']['ADDITIONALMATERIALS']['FILE_VALUE'] as $image):?>
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
                                 <a href="<?=$image['SRC']?>" class="image-popup gal-item"><img src="<?=$image['SRC']?>" alt="Image" class="img-fluid"></a>
                             </div>
                         <?endforeach;?>
+                        <?else:?>
+                            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <a href="<?=$arResult['DISPLAY_PROPERTIES']['ADDITIONALMATERIALS']['FILE_VALUE']['SRC']?>" class="image-popup gal-item"><img src="<?=$arResult['DISPLAY_PROPERTIES']['ADDITIONALMATERIALS']['FILE_VALUE']['SRC']?>" alt="Image" class="img-fluid"></a>
+                            </div>
+                        <?endif;?>
                     </div>
                     <div class="row mt-5">
                         <div class="col-12">

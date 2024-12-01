@@ -1,16 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мои объявления");
-?><?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb",
-	"breadcrumb",
-	Array(
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"START_FROM" => "0"
-	)
-);?>
-<? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL"=>5,"CREATED_USER_ID"=>"1"];?>
+?><? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL"=>5,"CREATED_USER_ID"=>"1"];?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"news",

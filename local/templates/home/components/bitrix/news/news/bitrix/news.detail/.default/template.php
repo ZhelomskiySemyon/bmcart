@@ -22,7 +22,6 @@ $this->setFrameMode(true);
         </div>
     </div>
 </div>
-
 <div class="site-section site-section-sm">
     <div class="container">
         <div class="row">

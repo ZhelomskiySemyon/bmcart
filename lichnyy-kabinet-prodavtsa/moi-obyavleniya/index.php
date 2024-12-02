@@ -2,9 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мои объявления");
 ?><?
-//global $customAds;
 $customAds = array("CREATED_USER_ID" => $GLOBALS['USER']->GetID());
-//$GLOBALS['customAds'] = array("ACTIVE" => "N");
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
@@ -30,7 +28,7 @@ $customAds = array("CREATED_USER_ID" => $GLOBALS['USER']->GetID());
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
-		"DETAIL_PROPERTY_CODE" => array("",""),
+        "DETAIL_PROPERTY_CODE" => array("ADDRESS","PRICE","NUMBERFLOORS","TOTALAREA","NUMBERBATHROOMS","LINKSEXTERNALRESOURCES","PRIORITYDEAL","AVAILABILITYGARAGE","GALLERY","ADDITIONALMATERIALS",""),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -39,9 +37,9 @@ $customAds = array("CREATED_USER_ID" => $GLOBALS['USER']->GetID());
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FILTER_FIELD_CODE" => array("NAME",""),
+		"FILTER_FIELD_CODE" => array("DETAIL_TEXT","DETAIL_PICTURE",""),
 		"FILTER_NAME" => "customAds",
-		"FILTER_PROPERTY_CODE" => array("",""),
+		"FILTER_PROPERTY_CODE" => array("ADDRESS","PRICE","NUMBERFLOORS","TOTALAREA","NUMBERBATHROOMS","LINKSEXTERNALRESOURCES","PRIORITYDEAL","AVAILABILITYGARAGE",""),
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "5",
 		"IBLOCK_TYPE" => "announcements",

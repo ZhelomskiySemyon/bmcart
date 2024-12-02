@@ -1,7 +1,11 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мои объявления");
-?><? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL"=>5,"CREATED_USER_ID"=>"1"];?>
+?><?
+//global $customAds;
+$customAds = array("CREATED_USER_ID" => $GLOBALS['USER']->GetID());
+//$GLOBALS['customAds'] = array("ACTIVE" => "N");
+?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"news",
@@ -35,8 +39,8 @@ $APPLICATION->SetTitle("Мои объявления");
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FILTER_FIELD_CODE" => array("",""),
-		"FILTER_NAME" => "arrFilter",
+		"FILTER_FIELD_CODE" => array("NAME",""),
+		"FILTER_NAME" => "customAds",
 		"FILTER_PROPERTY_CODE" => array("",""),
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "5",
@@ -70,7 +74,7 @@ $APPLICATION->SetTitle("Мои объявления");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
 		"USE_CATEGORIES" => "N",
-		"USE_FILTER" => "N",
+		"USE_FILTER" => "Y",
 		"USE_PERMISSIONS" => "N",
 		"USE_RATING" => "N",
 		"USE_REVIEW" => "N",

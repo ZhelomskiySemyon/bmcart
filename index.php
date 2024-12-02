@@ -2,9 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
 ?>
-
-
-<? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL"=>5, "CREATED_USER_ID"=>"1"];?> <?$APPLICATION->IncludeComponent(
+<? $GLOBALS['arrFilter'] = ["PROPERTY_PRIORITYDEAL"=>5];?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"slider",
 	Array(

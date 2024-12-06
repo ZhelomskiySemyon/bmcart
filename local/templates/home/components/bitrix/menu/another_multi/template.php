@@ -56,7 +56,6 @@ foreach($arResult as $arItem):?>
 <?if ($previousLevel > 1)://close last item tags?>
 	<?=str_repeat("</ul></li>", ($previousLevel-1) );?>
 <?endif?>
-
 </ul>
     </nav>
 

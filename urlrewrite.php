@@ -40,7 +40,7 @@ $arUrlRewrite=array (
     'PATH' => '/lichnyy-kabinet-prodavtsa/moi-obyavleniya/index.php',
     'SORT' => 100,
   ),
-  19 => 
+  27 => 
   array (
     'CONDITION' => '#^/obyavleniya/#',
     'RULE' => '',

@@ -2,8 +2,8 @@
 
 namespace included;
 
+use Bitrix\Main\Entity\Event;
 use Bitrix\Main\EventManager;
-use Bitrix\Main\Loader;
 use CUser;
 
 class EventHandlers
@@ -12,6 +12,9 @@ class EventHandlers
     {
         $eventManager = EventManager::getInstance();
         $eventManager->addEventHandler("main", "OnAfterUserRegister", [self::class, "AfterRegistration"]);
+        $eventManager->addEventHandler('', 'RealEstateAgentsHLOnAfterAdd', [self::class, "clearCache"]);
+        $eventManager->addEventHandler('', 'RealEstateAgentsHLOnAfterUpdate', [self::class, "clearCache"]);
+        $eventManager->addEventHandler('', 'RealEstateAgentsHLOnAfterDelete', [self::class, "clearCache"]);
     }
 
 
@@ -33,6 +36,11 @@ class EventHandlers
             $arGroup[] = 8;
             CUser::SetUserGroup($arFields['USER_ID'], $arGroup);
         }
+    }
+    public static function clearCache(Event $event)
+    {
+        $taggedCache = \Bitrix\Main\Application::getInstance()->getTaggedCache();
+        $taggedCache->clearByTag('hlblock_table_name_' . "real_estate_agents");
     }
 }
 ?>

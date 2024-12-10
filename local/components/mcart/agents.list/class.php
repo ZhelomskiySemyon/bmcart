@@ -157,8 +157,11 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
          * Получить Избранных агентов для текущего пользователя записать их в массив $this->arResult['STAR_AGENTS']
          * Это можно зделать с помощью CUserOptions::GetOption
          */
+        $hlblock = HighloadBlockTable::getList([
+            "filter" => ['=NAME' => 'RealEstateAgentsHL']
+        ])->fetch();
         $category = 'mcart_agent';
-        $name = 'options_agents_star';
+        $name = "options_agents_star_".$hlblock['ID'];
          $this->arResult['STAR_AGENTS'] = CUserOptions::GetOption($category, $name);
         /*
          * Данного метода нет в документации, код метода и его параметры можно найти в ядре (/bitrix/modules/main/) или в гугле
@@ -323,24 +326,38 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
         $result = []; // ответ, который уйдет на фронт
 
         $value = []; // массив ID элементов, которые пользователь добавил в избраное
+        /*
+         * 1. Получить значения свойства из настроек пользователя (CUserOptions) для текущего пользователя
+         * https://dev.1c-bitrix.ru/community/webdev/user/259944/blog/17105/
+         * 2. Если значение есть, то
+         *   2.1. Проверить, что значение массив, если нет, то сделать массивом
+         *   2.2. Проверить есть ли в массиве $agentID
+         *     2.2.3. Если есть, удалить из массива
+         *     2.2.4. Если нет, добавить в массив
+         *   2.3. Записать в $value
+         * 3. Если значение нет, то $agentID записать $value
+         * 4. Записать $value (результат) в бз, метод CUserOptions::SetOption
+         * (его нет в документации, код метода и его параметры можно найти в ядре (/bitrix/modules/main/) или в гугле
+         * 5. Отправить на фронт в массиве $result в ключе 'action' значение 'success', если все прошло удачно
+         */
         $hlblock = HighloadBlockTable::getList([
             "filter" => ['=NAME' => 'RealEstateAgentsHL']
         ])->fetch();
-        $userOptions = CUserOptions::GetOption('form', "form_element_".$hlblock['ID']);
-        if ($userOptions) {
-            if (!is_array($userOptions)) {
-                $userOptions = [];
+        $value = CUserOptions::GetOption('mcart_agent', "options_agents_star_".$hlblock['ID']);
+        if ($value) {
+            if (!is_array($value)) {
+                $value = [];
             }
-            if (in_array($agentID, $userOptions)) {
-                unset($userOptions[$agentID]);
+            if (in_array($agentID, $value)) {
+                unset($value[$agentID]);
             } else {
-                $userOptions[$agentID] = $agentID;
+                $value[$agentID] = $agentID;
+
             }
-            $value = $userOptions;
         } else {
-            $value = $agentID;
+            $value[$agentID] = $agentID;
         }
-        if (CUserOptions::SetOption('form', "form_element_".$hlblock['ID'], [$agentID => $value])) {
+        if (CUserOptions::SetOption('mcart_agent', "options_agents_star_".$hlblock['ID'], $value)) {
             $result['action'] = 'success';
         }
 

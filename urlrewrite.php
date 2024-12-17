@@ -48,12 +48,44 @@ $arUrlRewrite=array (
     'PATH' => '/obyavleniya/index.php',
     'SORT' => 100,
   ),
+  32 => 
+  array (
+    'CONDITION' => '#^/s2/products/#',
+    'RULE' => '',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/s2/products/index.php',
+    'SORT' => 100,
+  ),
+  28 => 
+  array (
+    'CONDITION' => '#^/s2services/#',
+    'RULE' => '',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/s2services/index.php',
+    'SORT' => 100,
+  ),
+  29 => 
+  array (
+    'CONDITION' => '#^/s2products/#',
+    'RULE' => '',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/s2products/index.php',
+    'SORT' => 100,
+  ),
   9 => 
   array (
     'CONDITION' => '#^/izbrannoe/#',
     'RULE' => '',
     'ID' => '',
     'PATH' => '/lichnyy-kabinet-pokupatelya/izbrannoe/index.php',
+    'SORT' => 100,
+  ),
+  33 => 
+  array (
+    'CONDITION' => '#^/s2/otzyvy/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/s2/otzyvy/index.php',
     'SORT' => 100,
   ),
   0 => 
@@ -96,12 +128,28 @@ $arUrlRewrite=array (
     'PATH' => '/o-servise/novosti/index.php',
     'SORT' => 100,
   ),
+  34 => 
+  array (
+    'CONDITION' => '#^/s2/news/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/s2/news/index.php',
+    'SORT' => 100,
+  ),
   7 => 
   array (
     'CONDITION' => '#^/agenty/#',
     'RULE' => '',
     'ID' => '',
     'PATH' => '/o-servise/agenty/index.php',
+    'SORT' => 100,
+  ),
+  30 => 
+  array (
+    'CONDITION' => '#^/s2news/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/s2news/index.php',
     'SORT' => 100,
   ),
   24 => 

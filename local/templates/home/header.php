@@ -120,8 +120,8 @@ use Bitrix\Main\Page\Asset;
                 </div>
                 <div class="col-4 col-md-4 col-lg-8">
                     <?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"another_multi", 
+	"bitrix:menu",
+	"another_multi",
 	array(
 		"COMPONENT_TEMPLATE" => "another_multi",
 		"ROOT_MENU_TYPE" => "top",

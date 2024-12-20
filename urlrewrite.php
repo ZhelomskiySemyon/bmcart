@@ -48,7 +48,7 @@ $arUrlRewrite=array (
     'PATH' => '/obyavleniya/index.php',
     'SORT' => 100,
   ),
-  32 => 
+  35 => 
   array (
     'CONDITION' => '#^/s2/products/#',
     'RULE' => '',

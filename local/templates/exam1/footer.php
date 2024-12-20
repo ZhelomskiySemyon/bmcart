@@ -50,40 +50,25 @@
         </div>
 
         <!-- footer rew slider box -->
-        <div class="item-wrap">
-            <div class="rew-footer-carousel">
-                <div class="item">
-                    <div class="side-block side-opin">
-                        <div class="inner-block">
-                            <div class="title">
-                                <div class="photo-block">
-                                    <img src="<?=SITE_TEMPLATE_PATH?>/img/side-opin.jpg" alt="">
-                                </div>
-                                <div class="name-block"><a href="">Дмитрий Иванов</a></div>
-                                <div class="pos-block">Генеральный директор,"Офис+"</div>
-                            </div>
-                            <div class="text-block">“В магзине предоставили потрясающий выбор
-                                расцветок, а также, получил большую скидку по карте постоянного...</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="side-block side-opin">
-                        <div class="inner-block">
-                            <div class="title">
-                                <div class="photo-block">
-                                    <img src="<?=SITE_TEMPLATE_PATH?>/img/side-opin.jpg" alt="">
-                                </div>
-                                <div class="name-block"><a href="">Дмитрий Иванов</a></div>
-                                <div class="pos-block">Генеральный директор,"Офис+"</div>
-                            </div>
-                            <div class="text-block">“В магазине предоставили потрясающий выбор
-                                расцветок, а также, получил большую скидку по карте постоянного...</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:news.line",
+            "side.line",
+            Array(
+                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                "CACHE_GROUPS" => "Y",
+                "CACHE_TIME" => "300",
+                "CACHE_TYPE" => "A",
+                "DETAIL_URL" => "",
+                "FIELD_CODE" => array("NAME","PREVIEW_TEXT","PREVIEW_PICTURE","PROPERTY_POSITION","PROPERTY_COMPANY"),
+                "IBLOCKS" => array("21"),
+                "IBLOCK_TYPE" => "reviews",
+                "NEWS_COUNT" => "2",
+                "SORT_BY1" => "ACTIVE_FROM",
+                "SORT_BY2" => "SORT",
+                "SORT_ORDER1" => "DESC",
+                "SORT_ORDER2" => "ASC"
+            )
+        );?>
         <!-- / footer rew slider box -->
     </div>
     <!-- /side wrap -->

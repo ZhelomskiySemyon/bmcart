@@ -19,25 +19,16 @@ $this->setFrameMode(true);
             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
             $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
             ?>
-<!--        --><?php //=\Bitrix\Main\Diag\Debug::dump($arItem)?>
+<!--        --><?php //=\Bitrix\Main\Diag\Debug::dump(CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"], ["width" => 20, "height" => 20]))?>
         <div class="item">
             <div class="side-block side-opin" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                 <div class="inner-block">
                     <div class="title">
                         <div class="photo-block">
                             <?if(is_array($arItem["PREVIEW_PICTURE"])):?>
-                                <img
-                                        src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-                                        width="40px"
-                                        height="40px"
-
-                                ?>"/>
+                                <img src="<?=CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"], ["width" => 40, "height" => 40])['src']?>" />
                             <?else:?>
-                                <img
-                                        src="<?=SITE_TEMPLATE_PATH?>/img/no_photo.jpg"
-                                        width="40px"
-                                        height="40px"
-                                />
+                                <img src="<?=SITE_TEMPLATE_PATH?>/img/no_photo.jpg" width="40" height="40" />
                             <?endif?>
                         </div>
                         <?if($arItem["NAME"]):?>
@@ -50,11 +41,23 @@ $this->setFrameMode(true);
                             <?echo $arItem['PROPERTY_COMPANY_VALUE']?>
                         </div>
                     </div>
-                    <div class="text-block" style="-webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden" >
-                        <?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
+                    <?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
+                        <script>
+                            $("#my-div").text(function(idx, text) {
+                                if (text.length > 150) {
+                                    text = text.substring(0, 150);
+                                    var lastIndex = text.lastIndexOf(" ");
+                                    text = text.substring(0, lastIndex) + '...';
+                                }
+
+                                $(this).text(text);
+
+                            });
+                        </script>
+                        <div class="text-block" id="my-div">
                             <?echo $arItem["PREVIEW_TEXT"];?>
-                        <?endif;?>
-                    </div>
+                        </div>
+                    <?endif;?>
                 </div>
             </div>
         </div>

@@ -1,5 +1,11 @@
 <?
 $aMenuLinks = Array(
+    Array(
+        "Условие сотрудничества",
+        "/s2/partnyeram/index.php",
+        Array(),
+        ""
+    ),
 	Array(
 		"Как стать партнером", 
 		"/s2/partnyeram/kak-stat-partnerom.php", 

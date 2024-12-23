@@ -52,24 +52,35 @@
 
         <!-- footer rew slider box -->
         <?$APPLICATION->IncludeComponent(
-            "bitrix:news.line",
-            "side.line",
-            Array(
-                "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                "CACHE_GROUPS" => "Y",
-                "CACHE_TIME" => "300",
-                "CACHE_TYPE" => "A",
-                "DETAIL_URL" => "",
-                "FIELD_CODE" => array("NAME","PREVIEW_TEXT","PREVIEW_PICTURE","PROPERTY_POSITION","PROPERTY_COMPANY"),
-                "IBLOCKS" => array("21"),
-                "IBLOCK_TYPE" => "reviews",
-                "NEWS_COUNT" => "2",
-                "SORT_BY1" => "ACTIVE_FROM",
-                "SORT_BY2" => "SORT",
-                "SORT_ORDER1" => "DESC",
-                "SORT_ORDER2" => "ASC"
-            )
-        );?>
+	"bitrix:news.line", 
+	"side.line", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "300",
+		"CACHE_TYPE" => "A",
+		"DETAIL_URL" => "",
+		"FIELD_CODE" => array(
+			0 => "NAME",
+			1 => "PREVIEW_TEXT",
+			2 => "PREVIEW_PICTURE",
+			3 => "PROPERTY_POSITION",
+			4 => "PROPERTY_COMPANY",
+			5 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "21",
+		),
+		"IBLOCK_TYPE" => "reviews",
+		"NEWS_COUNT" => "2",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "NAME",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "DESC",
+		"COMPONENT_TEMPLATE" => "side.line"
+	),
+	false
+);?>
         <!-- / footer rew slider box -->
     </div>
     <!-- /side wrap -->

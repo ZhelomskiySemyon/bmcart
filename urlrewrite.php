@@ -80,7 +80,7 @@ $arUrlRewrite=array (
     'PATH' => '/lichnyy-kabinet-pokupatelya/izbrannoe/index.php',
     'SORT' => 100,
   ),
-  33 => 
+  36 => 
   array (
     'CONDITION' => '#^/s2/otzyvy/#',
     'RULE' => '',

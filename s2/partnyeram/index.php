@@ -1,4 +1,4 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Партнёрам");
+$APPLICATION->SetTitle("Условия сотрудничества");
 ?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -4,7 +4,7 @@ $aMenuLinks = Array(
 		"Компания", 
 		"company/", 
 		Array(), 
-		Array(), 
+		Array("UNIQ_TEXT"=>"Рандомное значение"), 
 		"" 
 	),
 	Array(

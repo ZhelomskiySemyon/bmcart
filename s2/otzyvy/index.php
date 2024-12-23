@@ -41,7 +41,7 @@ $APPLICATION->SetTitle("Отзывы");
 		"IBLOCK_TYPE" => "reviews",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"LIST_FIELD_CODE" => array("",""),
+		"LIST_FIELD_CODE" => array("ID","NAME","ACTIVE_FROM",""),
 		"LIST_PROPERTY_CODE" => array("POSITION","COMPANY",""),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",

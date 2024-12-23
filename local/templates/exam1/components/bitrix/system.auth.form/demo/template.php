@@ -40,11 +40,20 @@ if($arResult["FORM_TYPE"] == "login")
 					</script>
 				</div>
 				<div class="frm-row">
-					<input type="password" placeholder="<?=GetMessage("AUTH_PASSWORD")?>" name="USER_PASSWORD" maxlength="50" size="17" autocomplete="off" />			
+					<input type="password" placeholder="<?=GetMessage("AUTH_PASSWORD")?>" name="USER_PASSWORD" maxlength="50" size="17" autocomplete="off" />
 				</div>
 				<div class="frm-row">
 					<a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" class="btn-forgot"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
 				</div>
+                <?if ($arResult["CAPTCHA_CODE"]):?>
+                    <tr>
+                        <td colspan="2">
+                            <?echo GetMessage("AUTH_CAPTCHA_PROMT")?>:<br />
+                            <input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
+                            <img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /><br /><br />
+                            <input type="text" name="captcha_word" maxlength="50" value="" /></td>
+                    </tr>
+                <?endif?>
 				<div class="frm-row">
 					<div class="frm-chk">
 						<input type="checkbox" id="login" name="USER_REMEMBER" value="Y"> <label for="login"><?=GetMessage("AUTH_REMEMBER_ME_SHORT")?></label>
@@ -53,18 +62,32 @@ if($arResult["FORM_TYPE"] == "login")
 				<div class="frm-row">
 					<input type="submit" name="Login" value="<?=GetMessage("AUTH_LOGIN_BUTTON")?>">
 				</div>
-			</form></li>
+                <?if($arResult["AUTH_SERVICES"]):?>
+                    <?
+                    $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
+                        array(
+                            "AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
+                            "CURRENT_SERVICE" => $arResult["CURRENT_SERVICE"],
+                            "AUTH_URL" => $arResult["AUTH_URL"],
+                            "SHOW_TITLES" => "N",
+                            "FOR_SPLIT" => "Y",
+                            "AUTH_LINE" => "N",
+                        ),
+                        $component,
+                        array("HIDE_ICONS"=>"Y")
+                    );
+                    ?>
+                <?endif?>
+
+            </form></li>
+
 		<li><a href="<?=$arResult["AUTH_REGISTER_URL"]?>"><?=GetMessage("AUTH_REGISTER")?></a></li>
 	</ul>
-</nav>
+
 <?
 }
 ?>
 <?if($arResult["AUTH_SERVICES"]):?>
-
-<?
-elseif($arResult["FORM_TYPE"] == "otp"):
-?>
 <?
 else:
 ?>
@@ -88,3 +111,4 @@ else:
     </nav>
 </form>
 <?endif?>
+</nav>

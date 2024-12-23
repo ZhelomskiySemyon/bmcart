@@ -7,11 +7,6 @@ use Bitrix\Main\Page\Asset;
 <head>
     <?$APPLICATION->ShowHead()?>
     <title><?$APPLICATION->ShowTitle(false)?></title>
-    <?Asset::getInstance()->addString('<meta http-equiv="X-UA-Compatible" content="IE=edge">')?>
-    <?Asset::getInstance()->addString('<meta name="keywords" content="">')?>
-    <?Asset::getInstance()->addString('<meta name="description" content="">')?>
-    <?Asset::getInstance()->addString('<meta name="author" content="">')?>
-    <?Asset::getInstance()->addString('<meta name="viewport" content="width=device-width, initial-scale=1.0">')?>
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/reset.css")?>
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/style.css")?>
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/owl.carousel.css")?>
@@ -41,7 +36,7 @@ use Bitrix\Main\Page\Asset;
                     );?>
             </div>
             <div class="main-phone-block">
-                <?if (date("Hi") >= 900 && date('Hi') <= 1800):?>
+                <?if (date("Hi") >= 900 && date('Hi') < 1800):?>
                     <a href="<?=GetMessage('HREF_PHONE')?>" class="phone"><?=GetMessage('PHONE')?></a>
                 <?else:?>
                     <a href="<?=GetMessage('HREF_EMAIL')?>" class="phone"><?=GetMessage('EMAIL')?></a>
@@ -109,12 +104,6 @@ use Bitrix\Main\Page\Asset;
     <!-- /nav -->
     <?if ($APPLICATION->GetCurPage(false) != '/s2/'):?>
     <!-- breadcrumbs -->
-<!--    <div class="breadcrumbs-box">-->
-<!--        <div class="inner-wrap">-->
-<!--            <a href="">Главная</a>-->
-<!--            <a href="">Мебель</a>-->
-<!--            <span>Выставки и события</span>-->
-
             <?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb", 
 	"ex.breadcrumb", 
@@ -126,8 +115,6 @@ use Bitrix\Main\Page\Asset;
 	),
 	false
 );?>
-<!--        </div>-->
-<!--    </div>-->
     <!-- /breadcrumbs -->
     <?endif;?>
     <!-- page -->

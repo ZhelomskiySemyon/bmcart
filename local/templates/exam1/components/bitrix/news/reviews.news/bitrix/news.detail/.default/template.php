@@ -12,12 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?//$APPLICATION->SetPageProperty('title', 'Отзыв - ' . $arResult['NAME'] . ' - ' . $arResult['DISPLAY_PROPERTIES']['COMPANY']['VALUE']);?>
-<?//if ($arResult['DISPLAY_PROPERTIES']['COMPANY']['VALUE']):?>
-<!--    --><?//$APPLICATION->SetPageProperty('title', 'Отзыв - ' . $arResult['NAME'] . ' - ' . $arResult['DISPLAY_PROPERTIES']['COMPANY']['VALUE']);?>
-<?//else:?>
-<!--    --><?//$APPLICATION->SetPageProperty('title','Отзыв - ' . $arResult['NAME']);?>
-<?//endif;?>
 <div class="review-block">
     <div class="review-text">
         <div class="review-text-cont">
@@ -63,10 +57,10 @@ $this->setFrameMode(true);
     <p>Документы:</p>
     <?if (count($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']) != count($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE'], COUNT_RECURSIVE)):?>
     <?foreach ($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE'] as $file):?>
-    <div  class="exam-review-item-doc"><img class="rew-doc-ico" src="<?=SITE_TEMPLATE_PATH?>/img/icons/pdf_ico_40.png"><a href="<?=$file['SRC']?>"><?=$file['ORIGINAL_NAME']?></a></div>
+    <div  class="exam-review-item-doc"><img class="rew-doc-ico" src="<?=SITE_TEMPLATE_PATH?>/img/icons/pdf_ico_40.png"><a href="<?=CFile::GetPath($file['SRC'])?>" download><?=$file['ORIGINAL_NAME']?></a></div>
     <?endforeach;?>
     <?else:?>
-        <div  class="exam-review-item-doc"><img class="rew-doc-ico" src="<?=SITE_TEMPLATE_PATH?>/img/icons/pdf_ico_40.png"><a href="<?=$arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']['SRC']?>"><?=$arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']['ORIGINAL_NAME']?></a></div>
+        <div  class="exam-review-item-doc"><img class="rew-doc-ico" src="<?=SITE_TEMPLATE_PATH?>/img/icons/pdf_ico_40.png"><a href="<?=$arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']['SRC']?>" download><?=$arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']['ORIGINAL_NAME']?></a></div>
     <?endif;?>
 </div>
 <?endif;?>

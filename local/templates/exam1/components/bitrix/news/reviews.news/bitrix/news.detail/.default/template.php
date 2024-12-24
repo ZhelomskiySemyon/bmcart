@@ -33,13 +33,12 @@ $this->setFrameMode(true);
         </div>
     </div>
     <div style="clear:both">
+        <?=\Bitrix\Main\Diag\Debug::dump(CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], ['width' => "68px", 'height' => "50px"], BX_RESIZE_IMAGE_EXACT))?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
             <img
                 class="review-img-wrap"
                 border="0"
-                src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>"
-                width="<?=$arResult["DETAIL_PICTURE"]["WIDTH"]?>"
-                height="<?=$arResult["DETAIL_PICTURE"]["HEIGHT"]?>"
+                src="<?=CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], ['width' => 68, 'height' => 50], BX_RESIZE_IMAGE_PROPORTIONAL)['src']?>"
                 alt="<?=$arResult["DETAIL_PICTURE"]["ALT"]?>"
                 title="<?=$arResult["DETAIL_PICTURE"]["TITLE"]?>"
             />

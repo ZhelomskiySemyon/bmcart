@@ -4,7 +4,7 @@ $aMenuLinks = Array(
 		"Компания", 
 		"company/", 
 		Array(), 
-		Array("UNIQ_TEXT"=>"Рандомное значение"), 
+		Array("UNIQ_TEXT"=>"Рандомное значение", "COLOR"=>"color-red"), 
 		"" 
 	),
 	Array(
@@ -45,6 +45,13 @@ $aMenuLinks = Array(
 	Array(
 		"Поиск", 
 		"/s2/search/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Опросы", 
+		"/s2/ask/", 
 		Array(), 
 		Array(), 
 		"" 
